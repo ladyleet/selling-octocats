@@ -1,238 +1,209 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>GitHub Octodex</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <style>
+    <head>
+        <title>GitHub Octodex</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <style>
         * { padding:0; margin:0; outline:0; }
-body {
-  background:#fff;
-  font-family: Arial, sans-serif;
-  font-size:12px;
-  line-height:17px;
-  color:#6f6e6e;
-}
-input, textarea, select { font-family: Arial, sans-serif; font-size:12px; color:#333; }
-textarea { overflow:auto;}
-
-a img { border:0; }
-
-a { color:#890000; text-decoration: none; cursor:pointer; }
-a:hover { color:#333; }
-
-.left, .alignleft { float:left; display:inline; }
-.right, .alignright { float:right; display:inline; }
-
-.cl { font-size:0; line-height:0; clear:both; display:block; height:0; }
-
-.al { text-align: left; }
-.ar { text-align: right; }
-.ac { text-align: center; }
-
-h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase; }
-
-h1#logo { font-size:0; line-height:0; width:248px; height:61px; float:left; }
-h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url("http://i.imgur.com/6GRxl4j.jpg"); }
-
-#navigation { float:right; white-space:nowrap; }
-#navigation ul{ list-style-type: none; padding-top:30px;}
-#navigation ul li{ float:left; display:inline; border-right:solid 1px #5f5f5f; padding-right:8px; margin-right:8px;}
-#navigation ul li.last{ border-right:0; padding-right:0; margin-right:0;}
-#navigation ul li a{ color:#fff;}
-#navigation ul li a:hover,
-#navigation ul li a.active { color:#ffd900; }
-
-
-.shell { width:980px; margin:0 auto; }
-
-#top { height:479px; background:#000; }
-#header { height:61px; }
-
-#slider { width:980px; height:418px; position:relative; overflow:hidden; }
-#slider-holder { width:980px; height:418px; position:relative; overflow:hidden; }
-#slider-holder ul{ width:980px; height:418px; position:relative; overflow:hidden; list-style-type: none;}
-#slider-holder .jcarousel-clip{ width:980px; height:418px; position:relative; overflow:hidden; }
-
-#slider-holder ul li{ width:980px; height:418px; position:relative; overflow:hidden; float:left; display:inline; }
-#slider-nav a{ position:absolute; top:180px; font-size:0; line-height:0; z-index:2; width:58px; height:58px; text-indent: -4000px;}
-#slider-nav a.prev{ background:url(http://www.free-css.com/assets/files/free-css-templates/preview/page131/wing-the-air/css/images/prev.gif); left:0;}
-#slider-nav a.next{ background:url(http://www.free-css.com/assets/files/free-css-templates/preview/page131/wing-the-air/css/images/next.gif); right:0;}
-
-
-#main { width:100%; background:url(http://www.free-css.com/assets/files/free-css-templates/preview/page131/wing-the-air/css/images/main.gif) repeat-x 0 0;}
-
-.options { height:47px; white-space:nowrap; padding-top:3px;}
-.options .search{ float:left; padding:6px 0 0 0; background:url(images/border.gif) repeat-y right 0; height:33px; margin-right:12px;}
-.options .search .field{ float:left; width:191px; height:21px; background:url(images/field.gif); padding:6px 5px 0 5px;}
-.options .search .field input{ width:191px; border:0; background:transparent; color:#fff; font-weight: bold;}
-.search-submit{ float:left; font-size:0; line-height:0; width:24px; height:27px; background:url(images/search.gif); text-indent: -4000px; border:0; margin-left:9px; cursor:pointer; position:relative; top:1px; margin-right:13px;}
-
-.options a { color:#636363; text-decoration: underline;}
-.options a:hover { color:#890000; text-decoration: none;}
-.options span.left { padding:10px 0 0 0;}
-.options span.more-links { margin-left:2px;}
-.options span.more-links a{ margin-left:9px;}
-
-.cart { float:left; position:relative; top:2px; }
-.cart strong{ float:left; width:95px; height:36px; background:url(images/cart-price.gif); text-align: right; font-size:20px; color:#701616; line-height:36px; padding:0 7px 0 5px;}
-.cart-ico{ float:left; width:47px; height:36px; background:url(images/cart.gif) no-repeat 0 0; font-size:0; line-height:0; text-indent: -4000px;}
-
-#content { padding-top:20px; }
-
-.tabs { height:36px; }
-.tabs ul{ list-style-type: none; font-size:14px; text-transform: uppercase; font-weight: bold; }
-.tabs ul li{ float:left; display:inline; margin-right:1px; }
-.tabs ul li a,
-.tabs ul li a span { float:left; height:36px; background:url(images/tab.gif) no-repeat 0 -37px; padding:0 0 0 20px;}
-.tabs ul li a span { background-position:right -37px; padding:0 20px 0 0;}
-.tabs ul li a { position:relative; line-height:36px; color:#895d23; }
-
-
-.tabs ul li a.red { background-position:0 -74px; color:#fff; }
-.tabs ul li a.red span{ background-position:right -74px;}
-
-.tabs ul li a.active,
-.tabs ul li a:hover { background-position:0 0; color:#4f4f4f; }
-.tabs ul li a.active span,
-.tabs ul li a:hover span{ background-position:right 0;}
-
-#container { background:#fff url(images/container-t.gif) no-repeat 0 0; padding:30px 20px; }
-
-.items { position:relative; width:960px; margin-right:-20px; padding-bottom:5px; }
-.items ul{ list-style-type: none;}
-.items ul .image{ text-align: center;}
-.items ul li{ float:left; border:dashed 1px #cfcfcf; width:194px; margin:0 18px 12px 0; padding:13px; }
-.items ul li p span{ color:#890000}
-.items ul li p.price{ padding-top:15px; }
-.items ul li p.price strong{ color:#890000; font-size:14px;}
-
-.brands h3 { padding-bottom:10px;}
-.brands a { margin-right:30px;}
-
-#footer { border-top:dashed 1px #cfcfcf; margin-top:20px; padding:10px 0; color:#8e8e8e;}
-#footer a{ color:#8e8e8e; }
-#footer a:hover{ color:#9d0000; }
-#footer span{ padding:0 5px;}
-
-.tab-content { display:none;}
-
-.tabbed { min-height:420px;}
-    </style>
-    <!--[if lte IE 6]><style type="text/css" media="screen">.tabbed { height:420px; }</style><![endif]-->
-    <script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
-    <script src="js/jquery.jcarousel.pack.js" type="text/javascript"></script>
-    <script src="js/jquery.slide.js" type="text/javascript"></script>
-    <script src="js/jquery-func.js" type="text/javascript"></script>
-</head>
-<body>
-    <!-- Top -->
-    <div id="top">
-        <div class="shell">
-            <!-- Header -->
-            <div id="header">
-                <h1 id="logo"><a href="#">Github Octodex</a></h1>
-                <div id="navigation">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">The Store</a></li>
-                        <li class="last"><a href="#">Contact</a></li>
-                    </ul>
+        body {
+        background:#fff;
+        font-family: Arial, sans-serif;
+        font-size:12px;
+        line-height:17px;
+        color:#6f6e6e;
+        }
+        input, textarea, select { font-family: Arial, sans-serif; font-size:12px; color:#333; }
+        textarea { overflow:auto;}
+        a img { border:0; }
+        a { color:#890000; text-decoration: none; cursor:pointer; }
+        a:hover { color:#333; }
+        .left, .alignleft { float:left; display:inline; }
+        .right, .alignright { float:right; display:inline; }
+        .cl { font-size:0; line-height:0; clear:both; display:block; height:0; }
+        .al { text-align: left; }
+        .ar { text-align: right; }
+        .ac { text-align: center; }
+        h3 { font-size:15px; line-height:18px; color:#bcbcbc; text-transform: uppercase; }
+        h1#logo { font-size:0; line-height:0; width:248px; height:61px; float:left; }
+        h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url("http://i.imgur.com/6GRxl4j.jpg"); }
+        #navigation { float:right; white-space:nowrap; }
+        #navigation ul{ list-style-type: none; padding-top:30px;}
+        #navigation ul li{ float:left; display:inline; border-right:solid 1px #5f5f5f; padding-right:8px; margin-right:8px;}
+        #navigation ul li.last{ border-right:0; padding-right:0; margin-right:0;}
+        #navigation ul li a{ color:#fff;}
+        #navigation ul li a:hover,
+        #navigation ul li a.active { color:#ffd900; }
+        .shell { width:980px; margin:0 auto; }
+        #top { height:479px; background:#000; }
+        #header { height:61px; }
+        #slider { width:980px; height:418px; position:relative; overflow:hidden; }
+        #slider-holder { width:980px; height:418px; position:relative; overflow:hidden; }
+        #slider-holder ul{ width:980px; height:418px; position:relative; overflow:hidden; list-style-type: none;}
+        #slider-holder .jcarousel-clip{ width:980px; height:418px; position:relative; overflow:hidden; }
+        #slider-holder ul li{ width:980px; height:418px; position:relative; overflow:hidden; float:left; display:inline; }
+        #slider-nav a{ position:absolute; top:180px; font-size:0; line-height:0; z-index:2; width:58px; height:58px; text-indent: -4000px;}
+        #slider-nav a.prev{ background:url(http://www.free-css.com/assets/files/free-css-templates/preview/page131/wing-the-air/css/images/prev.gif); left:0;}
+        #slider-nav a.next{ background:url(http://www.free-css.com/assets/files/free-css-templates/preview/page131/wing-the-air/css/images/next.gif); right:0;}
+        #main { width:100%; background:url(http://www.free-css.com/assets/files/free-css-templates/preview/page131/wing-the-air/css/images/main.gif) repeat-x 0 0;}
+        .options { height:47px; white-space:nowrap; padding-top:3px;}
+        .options .search{ float:left; padding:6px 0 0 0; background:url(images/border.gif) repeat-y right 0; height:33px; margin-right:12px;}
+        .options .search .field{ float:left; width:191px; height:21px; background:url(images/field.gif); padding:6px 5px 0 5px;}
+        .options .search .field input{ width:191px; border:0; background:transparent; color:#fff; font-weight: bold;}
+        .search-submit{ float:left; font-size:0; line-height:0; width:24px; height:27px; background:url(images/search.gif); text-indent: -4000px; border:0; margin-left:9px; cursor:pointer; position:relative; top:1px; margin-right:13px;}
+        .options a { color:#636363; text-decoration: underline;}
+        .options a:hover { color:#890000; text-decoration: none;}
+        .options span.left { padding:10px 0 0 0;}
+        .options span.more-links { margin-left:2px;}
+        .options span.more-links a{ margin-left:9px;}
+        .cart { float:left; position:relative; top:2px; }
+        .cart strong{ float:left; width:95px; height:36px; background:url(images/cart-price.gif); text-align: right; font-size:20px; color:#701616; line-height:36px; padding:0 7px 0 5px;}
+        .cart-ico{ float:left; width:47px; height:36px; background:url(images/cart.gif) no-repeat 0 0; font-size:0; line-height:0; text-indent: -4000px;}
+        #content { padding-top:20px; }
+        .tabs { height:36px; }
+        .tabs ul{ list-style-type: none; font-size:14px; text-transform: uppercase; font-weight: bold; }
+        .tabs ul li{ float:left; display:inline; margin-right:1px; }
+        .tabs ul li a,
+        .tabs ul li a span { float:left; height:36px; background:url(images/tab.gif) no-repeat 0 -37px; padding:0 0 0 20px;}
+        .tabs ul li a span { background-position:right -37px; padding:0 20px 0 0;}
+        .tabs ul li a { position:relative; line-height:36px; color:#895d23; }
+        .tabs ul li a.red { background-position:0 -74px; color:#fff; }
+        .tabs ul li a.red span{ background-position:right -74px;}
+        .tabs ul li a.active,
+        .tabs ul li a:hover { background-position:0 0; color:#4f4f4f; }
+        .tabs ul li a.active span,
+        .tabs ul li a:hover span{ background-position:right 0;}
+        #container { background:#fff url(images/container-t.gif) no-repeat 0 0; padding:30px 20px; }
+        .items { position:relative; width:960px; margin-right:-20px; padding-bottom:5px; }
+        .items ul{ list-style-type: none;}
+        .items ul .image{ text-align: center;}
+        .items ul li{ float:left; border:dashed 1px #cfcfcf; width:194px; margin:0 18px 12px 0; padding:13px; }
+        .items ul li p span{ color:#890000}
+        .items ul li p.price{ padding-top:15px; }
+        .items ul li p.price strong{ color:#890000; font-size:14px;}
+        .brands h3 { padding-bottom:10px;}
+        .brands a { margin-right:30px;}
+        #footer { border-top:dashed 1px #cfcfcf; margin-top:20px; padding:10px 0; color:#8e8e8e;}
+        #footer a{ color:#8e8e8e; }
+        #footer a:hover{ color:#9d0000; }
+        #footer span{ padding:0 5px;}
+        .tab-content { display:none;}
+        .tabbed { min-height:420px;}
+        </style>
+        <!--[if lte IE 6]><style type="text/css" media="screen">.tabbed { height:420px; }</style><![endif]-->
+        <script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
+        <script src="js/jquery.jcarousel.pack.js" type="text/javascript"></script>
+        <script src="js/jquery.slide.js" type="text/javascript"></script>
+        <script src="js/jquery-func.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <!-- Top -->
+        <div id="top">
+            <div class="shell">
+                <!-- Header -->
+                <div id="header">
+                    <h1 id="logo"><a href="#">Github Octodex</a></h1>
+                    <div id="navigation">
+                        <ul>
+                            <li><a href="#">Meow</a></li>
+                            <li><a href="#">Meow</a></li>
+                            <li><a href="#">Meow</a></li>
+                            <li><a href="#">Meow</a></li>
+                            <li class="last"><a href="#">More Meow</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <!-- End Header -->
-            <!-- Slider -->
-            <div id="slider">
-                <div id="slider-holder">
-                    <ul>
-                        <li><a href="#"><img src="http://i.imgur.com/XM1nu81.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="http://i.imgur.com/S7jSlvT.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="http://i.imgur.com/5H7Yvch.jpg" alt="" /></a></li>
-                        <li><a href="#"><img src="http://i.imgur.com/xBn6lQf.jpg" alt="" /></a></li>
-                    </ul>
+                <!-- End Header -->
+                <!-- Slider -->
+                <div id="slider">
+                    <div id="slider-holder">
+                        <ul>
+                            <li><a href="#"><img src="http://i.imgur.com/XM1nu81.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="http://i.imgur.com/S7jSlvT.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="http://i.imgur.com/5H7Yvch.jpg" alt="" /></a></li>
+                            <li><a href="#"><img src="http://i.imgur.com/xBn6lQf.jpg" alt="" /></a></li>
+                        </ul>
+                    </div>
+                    <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
                 </div>
-                <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
+                <!-- End Slider -->
             </div>
-            <!-- End Slider -->
         </div>
-    </div>
-    <!-- Top -->
-    <!-- Main -->
-    <div id="main">
-        <div class="shell">
-            <!-- Content -->
-            <div id="content">
-                <!-- Tabs -->
-                <div class="tabs">
-                    <ul>
-                        <li><a href="#" class="active"><span>Github Octocats</span></a></li>
-                    </ul>
-                </div>
-                <!-- Tabs -->
-                <!-- Container -->
-                <div id="container">
-                    <div class="tabbed">
-                        <!-- First Tab Content -->
-                        <div class="tab-content" style="display:block;">
-                            <div class="items">
-                                <div class="cl">&nbsp;</div>
-                                <ul>
-                                    <li>
-                                        <div class="image"> <a href="#"><img src="http://i.imgur.com/OOdUuXi.jpg" alt="" /></a> </div>
-                                        <p>
-                                            Item Number: <span>125515</span><br />
-                                            Item #: <span>123</span><br />
-                                            Name: <a href="#">Filmtocat</a>
-                                        </p>
-                                        <p class="price">Wholesale Price: <strong>$150 USD</strong></p>
-                                    </li>
-                                    <li>
-                                        <div class="image"> <a href="#"><img src="http://i.imgur.com/F8lORZt.jpg" alt="" /></a> </div>
-                                        <p>
-                                            Item Number: <span>125565</span><br />
-                                            Item #: <span>114</span><br />
-                                            Name: <a href="#">Saritocat</a>
-                                        </p>
-                                        <p class="price">Wholesale Price: <strong>$150 USD</strong></p>
-                                    </li>
-                                    <li>
-                                        <div class="image"> <a href="#"><img src="http://i.imgur.com/27os41s.jpg" alt="" /></a> </div>
-                                        <p>
-                                            Item Number: <span>125534</span><br />
-                                            Item #: <span>89</span><br />
-                                            Name: <a href="#">Spidertocat</a>
-                                        </p>
-                                        <p class="price">Wholesale Price: <strong>$150 USD</strong></p>
-                                    </li>
-                                    <li>
-                                        <div class="image"> <a href="#"><img src="http://i.imgur.com/6xNnq61.jpg" alt="" /></a> </div>
-                                        <p>
-                                            Item Number: <span>122315</span><br />
-                                            Item #: <span>94</span><br />
-                                            Name: <a href="#">Robotocat</a>
-                                        </p>
-                                        <p class="price">Wholesale Price: <strong>$150 USD</strong></p>
-                                    </li>
-                                </ul>
-                                <div class="cl">&nbsp;</div>
+        <!-- Top -->
+        <!-- Main -->
+        <div id="main">
+            <div class="shell">
+                <!-- Content -->
+                <div id="content">
+                    <!-- Tabs -->
+                    <div class="tabs">
+                        <ul>
+                            <li><a href="#" class="active"><span></span></a></li>
+                        </ul>
+                    </div>
+                    <!-- Tabs -->
+                    <!-- Container -->
+                    <div id="container">
+                        <div class="tabbed">
+                            <!-- First Tab Content -->
+                            <div class="tab-content" style="display:block;">
+                                <div class="items">
+                                    <div class="cl">&nbsp;</div>
+                                    <ul>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="http://i.imgur.com/OOdUuXi.jpg" alt="" /></a> </div>
+                                            <p>
+                                                Item Number: <span>125515</span><br />
+                                                Item #: <span>123</span><br />
+                                                Name: <a href="#">Filmtocat</a>
+                                            </p>
+                                            <p class="price">Wholesale Price: <strong>$150 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="http://i.imgur.com/F8lORZt.jpg" alt="" /></a> </div>
+                                            <p>
+                                                Item Number: <span>125565</span><br />
+                                                Item #: <span>114</span><br />
+                                                Name: <a href="#">Saritocat</a>
+                                            </p>
+                                            <p class="price">Wholesale Price: <strong>$150 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="http://i.imgur.com/27os41s.jpg" alt="" /></a> </div>
+                                            <p>
+                                                Item Number: <span>125534</span><br />
+                                                Item #: <span>89</span><br />
+                                                Name: <a href="#">Spidertocat</a>
+                                            </p>
+                                            <p class="price">Wholesale Price: <strong>$150 USD</strong></p>
+                                        </li>
+                                        <li>
+                                            <div class="image"> <a href="#"><img src="http://i.imgur.com/6xNnq61.jpg" alt="" /></a> </div>
+                                            <p>
+                                                Item Number: <span>122315</span><br />
+                                                Item #: <span>94</span><br />
+                                                Name: <a href="#">Robotocat</a>
+                                            </p>
+                                            <p class="price">Wholesale Price: <strong>$150 USD</strong></p>
+                                        </li>
+                                    </ul>
+                                    <div class="cl">&nbsp;</div>
+                                </div>
                             </div>
+                            <!-- End First Tab Content -->
                         </div>
-                        <!-- End First Tab Content -->
+                        <!-- Footer -->
+                        <div id="footer">
+                            <div class="left"> <a href="#">Home</a> <span>|</span> <a href="#">One Octocat</a> <span>|</span> <a href="#">Two Octocat</a> <span>|</span> <a href="#">Three Octocat</a> <span>|</span> <a href="#">Four Octocat</a> </div>
+                            <div class="right"> &copy; Github.com. Best design ever by <a href="X">Tracy Lee &amp; Thad Lang</a> </div>
+                        </div>
+                        <!-- End Footer -->
                     </div>
-                    <!-- Footer -->
-                    <div id="footer">
-                        <div class="left"> <a href="#">Home</a> <span>|</span> <a href="#">Support</a> <span>|</span> <a href="#">My Account</a> <span>|</span> <a href="#">The Store</a> <span>|</span> <a href="#">Contact</a> </div>
-                        <div class="right"> &copy; Sitename.com. Design by <a href="X">Tracy Lee & Thad Lang</a> </div>
-                    </div>
-                    <!-- End Footer -->
+                    <!-- End Container -->
                 </div>
-                <!-- End Container -->
+                <!-- End Content -->
             </div>
-            <!-- End Content -->
         </div>
-    </div>
-    <!-- End Main -->
-</body>
+        <!-- End Main -->
+    </body>
 </html>
 </html>
